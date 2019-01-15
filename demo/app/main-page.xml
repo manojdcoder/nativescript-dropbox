@@ -1,0 +1,9 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page" 
+  xmlns:ui="nativescript-dropbox">
+  <StackLayout class="p-20">
+    <Image src="{{ url }}"></Image>
+    <Label text="{{ status }}" class="m-10 h2 text-center" textWrap="true"></Label>
+    <Button class="btn btn-primary" text="Upload" tap="onUploadButtonTap"></Button>
+    <Button class="btn btn-primary" text="Share" tap="onShareButtonTap"></Button>
+  </StackLayout>
+</Page>

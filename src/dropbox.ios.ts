@@ -2,16 +2,16 @@ import { SuccessEventData, ErrorEventData, ProgressEventData, Common } from "./d
 
 export class Dropbox extends Common {
 
-    private static _client: DBUserClient;
+    public static client: DBUserClient;
 
     public static init(accessToken: string) {
-        if (!Dropbox._client) {
-            Dropbox._client = DBUserClient.alloc().initWithAccessToken(accessToken);
+        if (!Dropbox.client) {
+            Dropbox.client = DBUserClient.alloc().initWithAccessToken(accessToken);
         }
     }
 
     createSharedLink(path: string) {
-        Dropbox._client.sharingRoutes.createSharedLink(path)
+        Dropbox.client.sharingRoutes.createSharedLink(path)
             .setResponseBlock((result: DBSHARINGPathLinkMetadata, routeError: DBSHARINGCreateSharedLinkError, networkError: DBRequestError) => {
                 if (result) {
                     if (this.hasListeners(Dropbox.successEvent)) {
@@ -28,7 +28,7 @@ export class Dropbox extends Common {
                         const eventData: ErrorEventData = {
                             eventName: Dropbox.errorEvent,
                             object: this,
-                            error: routeError || networkError
+                            ios: routeError || networkError
                         };
                         this.notify(eventData);
                     }
@@ -37,7 +37,7 @@ export class Dropbox extends Common {
     }
 
     uploadData(path: string, data: NSData) {
-        Dropbox._client.filesRoutes
+        Dropbox.client.filesRoutes
             .uploadDataInputData(path, data)
             .setResponseBlock((result: DBFILESFileMetadata, routeError: DBFILESUploadError, networkError: DBRequestError) => {
                 if (result) {

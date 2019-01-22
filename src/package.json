@@ -31,11 +31,12 @@
         "NativeScript",
         "JavaScript",
         "Android",
-        "iOS"
+        "iOS",
+        "dropbox"
     ],
     "author": {
-        "name": "Your Name",
-        "email": "youremail@yourdomain.com"
+        "name": "Manojkumar Murugesan",
+        "email": "manojdcoder@gmail.com"
     },
     "bugs": {
         "url": "https://github.com/manojdcoder/nativescript-dropbox/issues"

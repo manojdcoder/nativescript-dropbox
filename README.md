@@ -33,7 +33,7 @@ Uploads the data at the given path.
 | Parameters | Type | Description |
 | ---  | --- | --- |
 | `path` | `String` | Dropbox File Path. |
-| `data` | `NSData | java.lang.Byte[]` | Binary data. |
+| `data` | `NSData or java.lang.Byte[]` | Binary data. |
 
 ```js
 var dropbox = new Dropbox();
@@ -64,4 +64,31 @@ dropbox.addEventListener(Dropbox.successEvent, (event: SuccessEventData) => {
 dropbox.addEventListener(Dropbox.errorEvent, (event: ErrorEventData) => { ... });
 
 dropbox.createSharedLink("/logo.png");
+```
+## Known issues on Android
+
+#### Dropbox SDK requires API Level 19 (Kitkat - 4.4) or above
+You might have to modify the `minSdkVersion` entry in your `App_Resources/Android/src/main/AndroidManifest.xml` 
+
+```xml
+<uses-sdk
+	android:minSdkVersion="19"
+	...
+```
+
+#### The number of method references in a .dex file cannot exceed 64K.
+
+This can be solved by adding `multiDexEnabled true` to your `app/App_Resources/Android/app.gradle`
+
+```
+android {  
+  defaultConfig {  
+    applicationId = "__PACKAGE__"  
+    multiDexEnabled true
+    generatedDensities = []
+  }  
+  aaptOptions {  
+    additionalParameters "--no-version-vectors"  
+  }  
+}
 ```

@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.v2.DbxClientV2;
 import com.dropbox.core.v2.files.FileMetadata;
+import com.dropbox.core.v2.files.WriteMode;
 
 import org.nativescript.plugins.dropbox.DropboxPluginListener;
 import org.nativescript.plugins.dropbox.DropboxPluginProgressListener;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] data = stream.toByteArray();
 
-                new UploadFileTask("/logo.png", data,client, new DropboxPluginProgressListener(){
+                new UploadFileTask("/logo.png", WriteMode.OVERWRITE, false,false, data,client, new DropboxPluginProgressListener(){
                     public void success(Object result) {
                         Log.i("Success", result.toString());
                     }

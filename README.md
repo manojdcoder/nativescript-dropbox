@@ -23,7 +23,7 @@ Initiates the dropbox client with given token.
 | `accessToken` | `String` | User Access Token. |
 
 ```js
-var Dropbox = require('nativescript-dropbox');
+var Dropbox = require("nativescript-dropbox");
 Dropbox.init("ACCESS_TOKEN");
 ```
 
@@ -34,6 +34,9 @@ Uploads the data at the given path.
 | ---  | --- | --- |
 | `path` | `String` | Dropbox File Path. |
 | `data` | `NSData or java.lang.Byte[]` | Binary data. |
+| `overwrite` | `Boolean` | Overwrites the file if already exists. Defaults to `true`. |
+| `autorename` | `Boolean` | If there’s a conflict, as determined by mode, have the Dropbox server try to autorename the file to avoid conflict. Defaults to `false`. |
+| `mute` | `Boolean` | Normally, users are made aware of any file modifications in their Dropbox account via notifications in the client software. If true, this tells the clients that this modification shouldn’t result in a user notification. Defaults to `false`. |
 
 ```js
 var dropbox = new Dropbox();

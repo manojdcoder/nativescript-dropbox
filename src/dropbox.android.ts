@@ -39,9 +39,10 @@ export class Dropbox extends Common {
             })).execute(null);
     }
 
-    uploadData(path: string, data: java.lang.Byte[]) {
-        const instance = this;
-        new org.nativescript.plugins.dropbox.UploadFileTask(path, <any>data, Dropbox.client,
+    uploadData(path: string, data: java.lang.Byte[], overwrite: boolean = true, autorename: boolean = false, mute: boolean = false) {
+        const instance = this,
+            overwriteMode = overwrite ? com.dropbox.core.v2.files.WriteMode.OVERWRITE : com.dropbox.core.v2.files.WriteMode.ADD;
+        new org.nativescript.plugins.dropbox.UploadFileTask(path, overwriteMode, autorename, mute, <any>data, Dropbox.client,
             new org.nativescript.plugins.dropbox.DropboxPluginProgressListener({
                 success(result: com.dropbox.core.v2.files.FileMetadata) {
                     if (instance.hasListeners(Dropbox.successEvent)) {

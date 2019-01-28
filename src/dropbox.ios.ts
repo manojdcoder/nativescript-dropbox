@@ -36,9 +36,16 @@ export class Dropbox extends Common {
             });
     }
 
-    uploadData(path: string, data: NSData) {
+    uploadData(path: string, data: NSData, overwrite: boolean = true, autorename: boolean = false, mute: boolean = false) {
+        let writeMode = DBFILESWriteMode.alloc();
+        if (overwrite) {
+            writeMode = writeMode.initWithOverwrite();
+        } else {
+            writeMode = writeMode.initWithAdd();
+        }
         Dropbox.client.filesRoutes
-            .uploadDataInputData(path, data)
+            .uploadDataModeAutorenameClientModifiedMutePropertyGroupsStrictConflictInputData(path, writeMode, <any>autorename,
+                null, <any>mute, null, <any>false, data)
             .setResponseBlock((result: DBFILESFileMetadata, routeError: DBFILESUploadError, networkError: DBRequestError) => {
                 if (result) {
                     if (this.hasListeners(Dropbox.successEvent)) {

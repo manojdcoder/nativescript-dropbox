@@ -1,6 +1,6 @@
 {
     "name": "nativescript-dropbox",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Dropbox SDK.",
     "main": "dropbox",
     "typings": "index.d.ts",

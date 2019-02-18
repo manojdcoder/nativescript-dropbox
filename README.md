@@ -68,6 +68,14 @@ dropbox.addEventListener(Dropbox.errorEvent, (event: ErrorEventData) => { ... })
 
 dropbox.createSharedLink("/logo.png");
 ```
+
+### dispose
+Disposes the dropbox client.
+
+```js
+Dropbox.dispose();
+```
+
 ## Known issues on Android
 
 #### Dropbox SDK requires API Level 19 (Kitkat - 4.4) or above

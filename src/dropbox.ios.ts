@@ -10,6 +10,12 @@ export class Dropbox extends Common {
         }
     }
 
+    public static dispose() {
+        if (Dropbox.client) {
+            Dropbox.client = null;
+        }
+    }
+
     createSharedLink(path: string) {
         Dropbox.client.sharingRoutes.createSharedLink(path)
             .setResponseBlock((result: DBSHARINGPathLinkMetadata, routeError: DBSHARINGCreateSharedLinkError, networkError: DBRequestError) => {

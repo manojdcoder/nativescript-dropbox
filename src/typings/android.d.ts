@@ -67269,6 +67269,21 @@ declare module org {
 	export module nativescript {
 		export module plugins {
 			export module dropbox {
+				export class ListSharedLinkTask extends android.os.AsyncTask<java.lang.Void,java.lang.Void,com.dropbox.core.v2.sharing.ListSharedLinksResult> {
+					public static class: java.lang.Class<org.nativescript.plugins.dropbox.ListSharedLinkTask>;
+					public constructor(param0: string, param1: com.dropbox.core.v2.DbxClientV2, param2: org.nativescript.plugins.dropbox.DropboxPluginListener);
+					public doInBackground(param0: native.Array<java.lang.Void>): com.dropbox.core.v2.sharing.ListSharedLinksResult;
+					public onPostExecute(param0: com.dropbox.core.v2.sharing.ListSharedLinksResult): void;
+				}
+			}
+		}
+	}
+}
+
+declare module org {
+	export module nativescript {
+		export module plugins {
+			export module dropbox {
 				export class ShareFileTask extends android.os.AsyncTask<java.lang.Void,java.lang.Void,com.dropbox.core.v2.sharing.SharedLinkMetadata> {
 					public static class: java.lang.Class<org.nativescript.plugins.dropbox.ShareFileTask>;
 					public constructor(param0: string, param1: com.dropbox.core.v2.DbxClientV2, param2: org.nativescript.plugins.dropbox.DropboxPluginListener);
@@ -67287,6 +67302,7 @@ declare module org {
 				export class UploadFileTask extends android.os.AsyncTask<java.lang.Void,java.lang.Integer,com.dropbox.core.v2.files.FileMetadata> {
 					public static class: java.lang.Class<org.nativescript.plugins.dropbox.UploadFileTask>;
 					public doInBackground(param0: native.Array<java.lang.Void>): com.dropbox.core.v2.files.FileMetadata;
+					public onProgressUpdate(param0: native.Array<java.lang.Integer>): void;
 					public onPostExecute(param0: com.dropbox.core.v2.files.FileMetadata): void;
 					public constructor(param0: string, param1: com.dropbox.core.v2.files.WriteMode, param2: boolean, param3: boolean, param4: native.Array<number>, param5: com.dropbox.core.v2.DbxClientV2, param6: org.nativescript.plugins.dropbox.DropboxPluginProgressListener);
 				}

@@ -11,6 +11,12 @@ export class Dropbox extends Common {
         }
     }
 
+    public static dispose() {
+        if (Dropbox.client) {
+            Dropbox.client = null;
+        }
+    }
+
     createSharedLink(path: string) {
         const instance = this;
         new org.nativescript.plugins.dropbox.ShareFileTask(path, Dropbox.client,

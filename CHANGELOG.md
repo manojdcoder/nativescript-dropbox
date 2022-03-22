@@ -1,3 +1,7 @@
+## 1.1.3 (2022, Mar 22)
+
+-  Dropbox Java SDK update to v3.1.1 (TLS 1.2 support)
+
 ## 1.1.2 (2019, Feb 18)
 
 - Fixed parity issue with Android while creating shared link. Handle `shared_link_already_exists` exception and return the first available shared link on given path.

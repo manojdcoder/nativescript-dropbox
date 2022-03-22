@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
     buildToolsVersion "28.0.3"
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
     }
@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.dropbox.core:dropbox-core-sdk:3.0.10'
+    implementation 'com.dropbox.core:dropbox-core-sdk:3.1.1'
     // implementation fileTree(dir: 'libs', include: ['*.jar'])
     // implementation 'com.android.support:appcompat-v7:28.0.0'
     // testImplementation 'junit:junit:4.12'
